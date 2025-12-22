@@ -1,23 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>E-Ticket Carousel</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-  <h2>My Active Tickets</h2>
+  <header>
+    <h1>🎟️ My Active Tickets</h1>
+    <p>Swipe through your events seamlessly</p>
+  </header>
 
-  <div class="carousel">
-    <div class="ticket-card" id="ticket">
-      Loading ticket...
+  <main>
+    <div class="carousel">
+      <div class="ticket" id="ticketCard"></div>
     </div>
-  </div>
 
-  <div class="controls">
-    <button onclick="prevTicket()">Previous</button>
-    <button onclick="nextTicket()">Next</button>
+    <div class="nav">
+      <button onclick="prevTicket()">⟵</button>
+      <span id="counter">0 / 0</span>
+      <button onclick="nextTicket()">⟶</button>
+    </div>
+
+    <button class="add-ticket" onclick="openModal()">＋ Add Ticket</button>
+  </main>
+
+  <!-- Modal -->
+  <div class="modal" id="modal">
+    <div class="modal-box">
+      <h2>Add New Ticket</h2>
+
+      <input id="venue" placeholder="Event / Venue">
+      <input id="seat" placeholder="Seat Number">
+      <input type="date" id="date">
+      <input type="time" id="time">
+      <input id="price" placeholder="Price">
+
+      <button onclick="addTicket()">Add Ticket</button>
+      <button class="cancel" onclick="closeModal()">Cancel</button>
+    </div>
   </div>
 
   <script src="script.js"></script>
